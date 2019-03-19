@@ -94,6 +94,9 @@ class TicketForm extends React.Component{
                             minvalid:true
                     }))
                     }
+                    else{
+                        continue
+                    }
                 }
                 
             })
@@ -130,10 +133,10 @@ class TicketForm extends React.Component{
                             </FormGroup>
                             <FormGroup >
                                 <Label ><Input  type="radio" name="priority" value="low" />Low</Label>
-                                <FormFeedback >{this.state.nerrmsg}</FormFeedback>
                             </FormGroup>
                         </legend>
-                        
+                    {this.state.pinvalid?<h6 className="text-danger">{this.state.perrmsg}</h6>:""}
+                    <FormFeedback >{this.state.perrmsg}</FormFeedback>    
                     </FormGroup>
                     <FormGroup >
                         <Label for="message" sm={2}>Message</Label>
