@@ -68,35 +68,34 @@ class TicketForm extends React.Component{
                     this.props.addTickets(res.data)
                 }
                 else{
-                    console.log(res.data.errors)
-                        
-                    if(res.data.errors.name.length===1){
-                        this.setState(()=>({ 
-                            nerrmsg :res.data.errors.name,
-                            ninvalid:true
-                         }))
-                    }
-                    if(res.data.errors.department.length===1){
-                        this.setState(()=>({ 
-                            derrmsg:res.data.errors.department,
-                            dinvalid:true
-                         }))
-                    }
-                    if(res.data.errors.priority.length===1){
-                        this.setState(()=>({ 
-                            perrmsg:res.data.errors.priority,
-                            pinvalid:true
-                    }))
-                    }
-                    if(res.data.errors.message.length===1){
-                        this.setState(()=>({ 
-                            merrmsg:res.data.errors.message,
-                            minvalid:true
-                    }))
-                    }
-                    else{
-                        continue
-                    }
+                    const errormsg=Object.keys(res.data.errors)
+                    errormsg.forEach(value=>{
+                        if(value==="name"){
+                            this.setState(()=>({ 
+                                nerrmsg :res.data.errors.name,
+                                ninvalid:true
+                            }))
+                        }
+                        else if(value==="department"){
+                                this.setState(()=>({ 
+                                    derrmsg :res.data.errors.department,
+                                    dinvalid:true
+                            }))
+                        }
+                        else if(value==="priority"){
+                            this.setState(()=>({ 
+                                perrmsg:res.data.errors.priority,
+                                pinvalid:true
+                            }))
+                        }
+                        else if(value==="message"){
+                            this.setState(()=>({ 
+                                merrmsg:res.data.errors.message,
+                                minvalid:true
+                            }))
+                        }
+                    })   
+                    
                 }
                 
             })
