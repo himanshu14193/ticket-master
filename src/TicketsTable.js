@@ -5,6 +5,7 @@ function TicketsTable(props){
     return (
         <div>
                 <span></span><h4>Listing Tickets -{props.tickets.length}</h4>
+                <div className="table-responsive">
                 <table border ="1" className="table table-striped  table-dark">
                 <thead>
                 <tr>
@@ -29,6 +30,7 @@ function TicketsTable(props){
                 }
                 </tbody>
             </table>
+            </div>
         </div>    
     )
 }

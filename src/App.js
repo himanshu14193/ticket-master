@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// import { BrowserRouter, Route , Link} from 'react-router-dom'
+
 import axios from 'axios'
 import TicketsTable from './TicketsTable'
 import TicketForm from './TicketForm'
@@ -10,6 +12,7 @@ class App extends Component {
     super()
     this.state ={
       tickets:[],
+      filtered:[],
       priority:"all",
       completed:0,
       total:0,
@@ -61,6 +64,7 @@ class App extends Component {
         }
         this.setState(()=> ({
           tickets: response.data,
+          filtered:response.data,
           total:response.data.length,
           completed:count,
           loading:true,
@@ -121,7 +125,7 @@ class App extends Component {
   handleSearch = (e) => {
     const search=e.target.value
         this.setState((prevState)=>({
-            tickets: prevState.tickets.filter(ticket => (
+            filtered: prevState.tickets.filter(ticket => (
               ticket.ticket_code.slice(0,search.length) ===search ) )
         }))
   }
