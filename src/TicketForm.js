@@ -61,7 +61,7 @@ class TicketForm extends React.Component{
             priority:this.state.priority,
             message:this.state.message
         }
-        axios.post('http://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084',data)
+        axios.post('https://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084',data)
             .then(res => {
                 if(res.data.status==="open"){
                     console.log(res.data)

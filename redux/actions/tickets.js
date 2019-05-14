@@ -13,7 +13,7 @@ export const addTicket = (ticket) => {
 }
 export const startAddTicket = (data) =>{
         return (dispatch) => {
-            axios.post('http://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084',data)
+            axios.post('https://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084',data)
                 .then (res=>{
                     dispatch(addTicket(res.data))
                 })
@@ -28,7 +28,7 @@ export const setTickets =(tickets) =>{
 }
 export const startGetTickets = () =>{
     return (dispatch) => {
-        axios.get('http://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084')
+        axios.get('https://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084')
             .then (res=>{
                 dispatch(setTickets(res.data))
             })

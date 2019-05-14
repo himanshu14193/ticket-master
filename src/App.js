@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount(){ //this is a life cycle method -post render- preferred to make api calls
     var count=0
     const priorityarr=[],departmentarr=[]
-    axios.get('http://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084')
+    axios.get('https://dct-api-data.herokuapp.com/tickets?api_key=7f9738fc7ac65084')
       .then(response=>{
         response.data.forEach(value =>{
           if(value.status==="completed"){
